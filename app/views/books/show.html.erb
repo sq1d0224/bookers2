@@ -32,13 +32,13 @@
       <%= form_with model: @book do |f| %>
 
         <div class="form-groupe">
-          <%= f.label :title, "Title" %>
-          <%= f.text_field :title ,class: "form-control book_title" %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control book_title" %>
         </div>
 
         <div class="form-groupe">
-        <%= f.label :body, "Option" %>
-        <%= f.text_area :body ,class: "form-control book_body" %>
+        <%= f.label :opinion %>
+        <%= f.text_area :body, class: "form-control book_body" %>
         </div>
 
         <div class="form-groupe">
@@ -68,9 +68,7 @@
             <td>
               <% if @book.user == current_user %>
                 <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
-              <% end %>
             <td>
-              <% if @book.user == current_user %>
                 <%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
               <% end %>
             </td>

@@ -32,13 +32,13 @@
       <%= form_with model: @book do |f| %>
 
         <div class="form-groupe">
-          <%= f.label :title, "Title" %>
-          <%= f.text_field :title ,class: "form-control book_title" %>
+          <%= f.label :title %>
+          <%= f.text_field :title, class: "form-control book_title" %>
         </div>
 
         <div class="form-groupe">
-        <%= f.label :body, "Option" %>
-        <%= f.text_area :body ,class: "form-control book_body" %>
+        <%= f.label :opinion %>
+        <%= f.text_area :body, class: "form-control book_body" %>
         </div>
 
         <div class="form-groupe">
@@ -50,21 +50,24 @@
     <!--Books-->
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
-      <table class="table table-hover table-inverse">
+      <table class="table">
         <thead>
           <tr>
-            <th></th>
             <th>image</th>
             <th>name</th>
             <th colspan="3"></th>
           </tr>
         </thead>
         <tbody>
+          <% @users.each do |user| %>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= image_tag user.get_profile_image(80,80) %></td>
+            <td><%= user.name %></td>
+            <td>
+              <%= link_to "Show", user_path(user.id) %>
+            </td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
